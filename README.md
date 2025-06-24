@@ -1,4 +1,4 @@
-**🛒 E-Commerce Microservice Capstone Project**
+![image](https://github.com/user-attachments/assets/c3bde72a-4074-48e8-8995-c13184399c27)**🛒 E-Commerce Microservice Capstone Project**
 This project is a cloud-based e-commerce application built using microservices and deployed on Amazon EKS. It includes multi-region infrastructure setup using Terraform and CloudFormation, CI/CD automation using AWS CodePipeline, DNS failover using Route53, and monitoring with CloudWatch.
 
 **📌 Project Goals**
@@ -61,23 +61,8 @@ capstone-project/
 - **CloudWatch** – for monitoring and alerting  
 
 **Architecture:**
-                     🌐 Internet
-                          |
-                     [ Route 53 ]
-                          |
-     --------------------------------------------------
-     |                                                 |
-📍 Region A (us-east-1)                           📍 Region B (us-west-2)
-[ Application Load Balancer (ALB) ]            [ Application Load Balancer (ALB) ]
-                   |                                         |
-             [ Amazon EKS ]                          [ Amazon EKS ]
-         (product, order, frontend)              (product, order, frontend)
-                   |                                         |
-          [ RDS MySQL Database ]                    [ RDS MySQL Database ]
-                   |                                         |
-          📊 CloudWatch Monitoring                 📊 CloudWatch Monitoring
-                                      |
-                    Auto Failover via Route 53 Health Checks
+![image](https://github.com/user-attachments/assets/0a3e9f85-3985-494c-8011-d798f0dbe8a3)
+
 
 
 **🚀 EKS Deployment Steps**
