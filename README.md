@@ -20,35 +20,6 @@ This project is a cloud-based e-commerce application built using microservices a
 | Monitoring           | CloudWatch, SNS                      | Collects metrics/logs and sends alert notifications |
 
 
-**🗂 Folder Structure**
-capstone-project/
-├── k8s/ # Kubernetes manifests
-│ ├── mysql-deployment.yaml
-│ ├── product-deploy.yaml
-│ ├── order-deploy.yaml
-│ ├── frontend-deployment.yaml
-│ ├── services.yaml
-│ ├── ingress.yaml
-│ └── mysql-init.sql
-├── product-service/
-│ ├── app.py
-│ ├── Dockerfile
-│ └── requirements.txt
-├── order-service/
-│ ├── app.py
-│ ├── Dockerfile
-│ └── requirements.txt
-├── frontend/
-│ ├── index.html
-│ ├── view-products.html
-│ ├── add-product.html
-│ ├── view-orders.html
-│ ├── place-order.html
-│ └── Dockerfile
-├── buildspec.yaml # CodeBuild specification
-└── README.md
-
-
 **🔧 Tools Used**
 - **Amazon EKS** – for container orchestration  
 - **AWS ECR** – to store container images  
