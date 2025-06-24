@@ -61,8 +61,7 @@ capstone-project/
 - **CloudWatch** – for monitoring and alerting  
 
 **Architecture:**
-![image](https://github.com/user-attachments/assets/0a3e9f85-3985-494c-8011-d798f0dbe8a3)
-
+![image](https://github.com/user-attachments/assets/58599a59-cc7b-4153-973f-64cc84d4e150)
 
 
 **🚀 EKS Deployment Steps**
