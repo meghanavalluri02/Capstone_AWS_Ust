@@ -77,7 +77,7 @@ capstone-project/
                    |                                         |
           📊 CloudWatch Monitoring                 📊 CloudWatch Monitoring
 
-                  🔄 Auto Failover via Route 53 Health Checks
+                    Auto Failover via Route 53 Health Checks
 
 
 **🚀 EKS Deployment Steps**
