@@ -76,7 +76,7 @@ capstone-project/
           [ RDS MySQL Database ]                    [ RDS MySQL Database ]
                    |                                         |
           📊 CloudWatch Monitoring                 📊 CloudWatch Monitoring
-
+                                      |
                     Auto Failover via Route 53 Health Checks
 
 
