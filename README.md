@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c3bde72a-4074-48e8-8995-c13184399c27)**🛒 E-Commerce Microservice Capstone Project**
+**🛒 E-Commerce Microservice Capstone Project**
 This project is a cloud-based e-commerce application built using microservices and deployed on Amazon EKS. It includes multi-region infrastructure setup using Terraform and CloudFormation, CI/CD automation using AWS CodePipeline, DNS failover using Route53, and monitoring with CloudWatch.
 
 **📌 Project Goals**
