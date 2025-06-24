@@ -67,6 +67,7 @@ Connect GitHub Repo to AWS CodePipeline
 
 **🌍 Multi-Region Infrastructure Deployment**
 📍 Region A – Using CloudFormation
+
 GitHub Repo: Capstone - CloudFormation
 
 aws cloudformation deploy \
@@ -75,23 +76,35 @@ aws cloudformation deploy \
   --region us-east-1
 
 Region B – Using Terraform
+
 GitHub Repo: Capstone - Terraform
+
 terraform init
+
 terraform apply
 
 **🌐 Route 53 Failover Setup**
 Create Health Check
+
 For Region A LoadBalancer URL
+
 Create Hosted Zone
+
 Create A Records with Failover Policy
+
 Primary: Region A
+
 Secondary: Region B
+
 Test failover by simulating failure in Region A
 
 **📊 CloudWatch Monitoring Setup**
 Logs: Set up logGroup and send application logs from EKS
+
 Metrics: Enable CPU, memory, network metrics
+
 Alarms: Use thresholds and create alarms
+
 Notifications: Attach SNS topics to alarms for email alerts
 
 **🧪 Application Features**
