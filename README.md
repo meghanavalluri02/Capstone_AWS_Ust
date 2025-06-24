@@ -96,8 +96,13 @@ Notifications: Attach SNS topics to alarms for email alerts
 
 **🧪 Application Features**
 🛒 Add Product
+
 🔍 View Products
+
 📦 Place Order
+
 📋 View Orders
+
 💾 Persistent data using MySQL backend
+
 🌐 DNS failover and multi-region availability
