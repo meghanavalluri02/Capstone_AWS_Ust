@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstone-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: capstone-app
+  template:
+    metadata:
+      labels:
+        app: capstone-app
+    spec:
+      containers:
+        - name: capstone-app
+          image: 156041402660.dkr.ecr.us-east-1.amazonaws.com/capstone:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://database-1.chmewass6qvh.us-east-1.rds.amazonaws.com:3306/ecommerce
+            - name: SPRING_DATASOURCE_USERNAME
+              value: admin
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: strongpassword
