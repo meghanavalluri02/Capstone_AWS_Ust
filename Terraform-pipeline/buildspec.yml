@@ -1,0 +1,48 @@
+version: 0.2
+ 
+phases:
+  install:
+    commands:
+      - echo Installing SonarScanner CLI...
+      - curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+      - unzip sonar-scanner.zip
+      - mv sonar-scanner-* sonar-scanner
+      - export PATH=$PATH:$(pwd)/sonar-scanner/bin
+ 
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 156041402660.dkr.ecr.us-west-2.amazonaws.com
+      - IMAGE_TAG=latest
+      - ECR_REPO=156041402660.dkr.ecr.us-west-2.amazonaws.com/ecommerce-flask
+ 
+  build:
+    commands:
+      - echo Building the project with Maven...
+      - mvn clean package -DskipTests
+ 
+      - echo Running SonarQube scan...
+      - export PATH=$PATH:$(pwd)/sonar-scanner/bin
+      - sonar-scanner -Dsonar.projectKey=capstone -Dsonar.sources=. -Dsonar.host.url=http://54.205.165.18 -Dsonar.login=sqp_ddc64c293ef29b2e4c988799fb7eddf64763725a -Dsonar.java.binaries=target/classes
+      - echo Building Docker image...
+      - docker build -t $ECR_REPO:$IMAGE_TAG .
+ 
+  post_build:
+    commands:
+      - echo Pushing Docker image to ECR...
+      - docker push $ECR_REPO:$IMAGE_TAG
+      - echo Preparing Kubernetes deployment files...
+      - mkdir -p k8s-out
+      - sed "s|IMAGE_PLACEHOLDER|$ECR_REPO:$IMAGE_TAG|g" k8s/deployment.yaml > k8s-out/deployment.yaml
+      - cp k8s/service.yaml k8s-out/service.yaml
+      - echo Deploying to EKS...
+      - aws eks update-kubeconfig --region us-west-2 --name eks-cluster-2
+      - kubectl apply -f k8s-out/deployment.yaml
+      - kubectl apply -f k8s-out/service.yaml
+
+ 
+artifacts:
+  base-directory: k8s-out
+  files:
+    - deployment.yaml
+    - service.yaml
